@@ -1,6 +1,25 @@
-def solution(num):
+def solution(jumps):
 
-    return None
+    jumps = jumps.split("\n")
+    jumps = map(int, jumps)
+
+    curr = 0
+    steps = 0
+
+    while 0 <= curr < len(jumps):
+
+        next = curr + jumps[curr]
+
+        if jumps[curr] >= 3:
+            jumps[curr] -= 1
+        else:
+            jumps[curr] += 1
+            
+        curr = next
+
+        steps += 1
+
+    return steps
 
 
 if __name__ == "__main__":
